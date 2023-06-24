@@ -32,6 +32,10 @@ app.use("/", indexRoutes);
 const usersRoutes = require("./routes/users.routes");
 app.use("/users", usersRoutes);
 
+// add books routes
+const booksRoutes = require("./routes/books.routes");
+app.use("/books", booksRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
