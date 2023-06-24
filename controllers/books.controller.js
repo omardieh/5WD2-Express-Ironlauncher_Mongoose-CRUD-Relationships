@@ -42,6 +42,13 @@ const updateExistingBook = (req, res, next) => {
     .catch((error) => next(error));
 };
 
+const deleteBookById = (req, res, next) => {
+  const { bookId } = req.params;
+
+  Book.findByIdAndDelete(bookId)
+    .then(() => res.redirect("/books"))
+    .catch((error) => next(error));
+};
 const findBookById = (req, res, next) => {
   const { bookId } = req.params;
   Book.findById(bookId)
@@ -56,5 +63,6 @@ module.exports = {
   createNewBook,
   editBookById,
   updateExistingBook,
+  deleteBookById,
   findBookById,
 };
